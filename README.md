@@ -1,6 +1,64 @@
-Ingests a markdown doc or folders of markdown docs and embeds them and indexes for searching. Can be prompted with a .txt of nlnl seperated queries for dataset generation. 
+groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
 
 ![dithered_image (4)](https://github.com/user-attachments/assets/665ef536-d4c7-45d3-b910-a37223df3fa3)
+
+Document Ingestion and Indexing:
+1. The script can process either a single markdown document or a folder containing multiple markdown files.
+2. Each document is split into chunks, and embeddings are generated for these chunks.
+3. A hybrid search index is created, combining embedding-based similarity and BM25 text matching.
+
+Query Processing:
+1. Queries can be input interactively or loaded from a text file.
+2. For dataset generation, a text file with queries separated by double newlines (nlnl) can be used.
+
+Command-line Usage:
+
+1. Basic usage with a single document:
+   ```
+   python script_name.py --input path/to/document.md
+   ```
+
+2. Processing a folder of markdown files:
+   ```
+   python script_name.py --input path/to/markdown/folder
+   ```
+
+3. Using a configuration file:
+   ```
+   python script_name.py --config path/to/config.json --input path/to/documents
+   ```
+
+4. Processing queries from a file:
+   ```
+   python script_name.py --input path/to/documents --query-file path/to/queries.txt
+   ```
+
+Query File Example (queries.txt):
+```
+What is the main topic of the document?
+
+How does the author describe the problem?
+
+What solutions are proposed in the text?
+
+Can you summarize the key findings?
+
+What evidence is presented to support the main argument?
+```
+
+Each query in this file is separated by a double newline (nlnl).
+
+The script will process these queries sequentially, generating answers based on the ingested documents. This is particularly useful for creating large datasets of question-answer pairs grounded in specific documents.
+
+Output:
+1. The script generates JSONL files containing the query expansions and responses.
+2. A markdown file is also created with a detailed log of the conversation, including system prompts, user queries, and AI responses.
+
+This approach allows for efficient generation of document-grounded QA datasets, which can be valuable for fine-tuning language models or evaluating their performance on specific domains or document sets.
+
+---
+
+## FLOW
 
 1. Hybrid Search:
    - Combines embedding similarity and BM25 for improved relevance
@@ -64,14 +122,9 @@ Ingests a markdown doc or folders of markdown docs and embeds them and indexes f
 
    Chunk: [Content] (Relevance: 0.95, Position: 156-234)
 
-By finetuning models on this data, we can improve:
-- Information retrieval capabilities
-- Context-aware response generation
-- Factual grounding in responses
-- Handling of multi-turn conversations
-
-This synthetic data bridges the gap between general language understanding and specific document comprehension, leading to more capable and reliable AI assistants.
 ```
+
+# CONFIGURATION FILES
 
 ```
 {
