@@ -1,5 +1,7 @@
 Ingests a markdown doc or folders of markdown docs and embeds them and indexes for searching. Can be prompted with a .txt of nlnl seperated queries for dataset generation. 
 
+![dithered_image (4)](https://github.com/user-attachments/assets/665ef536-d4c7-45d3-b910-a37223df3fa3)
+
 1. Hybrid Search:
    - Combines embedding similarity and BM25 for improved relevance
 
@@ -21,7 +23,7 @@ Ingests a markdown doc or folders of markdown docs and embeds them and indexes f
 7. On-the-fly Embedding Generation:
    - Creates and caches embeddings for efficient reuse
 
-
+```
 1. Contextual Relevance
    The QA pairs are directly tied to specific document chunks, ensuring relevance and accuracy.
 
@@ -69,9 +71,7 @@ By finetuning models on this data, we can improve:
 - Handling of multi-turn conversations
 
 This synthetic data bridges the gap between general language understanding and specific document comprehension, leading to more capable and reliable AI assistants.
-
-![dithered_image (4)](https://github.com/user-attachments/assets/665ef536-d4c7-45d3-b910-a37223df3fa3)
-
+```
 
 ```
 {
