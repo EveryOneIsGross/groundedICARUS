@@ -1,3 +1,75 @@
+Ingests a markdown doc or folders of markdown docs and embeds them and indexes for searching. Can be prompted with a .txt of nlnl seperated queries for dataset generation. 
+
+1. Hybrid Search:
+   - Combines embedding similarity and BM25 for improved relevance
+
+2. Dynamic Query Expansion:
+   - Uses LLMs to generate context-aware, enhanced queries
+
+3. Adaptive Chunking:
+   - Creates variable-sized chunks based on content semantics
+
+4. Multi-Modal Conversation Export:
+   - Generates both JSONL for model training and Markdown for human review
+
+5. Flexible API Integration:
+   - Supports multiple LLM providers (OpenAI, Groq, Anthropic) and local models
+
+6. Configurable Conversation Modes:
+   - Switchable between zero-shot and multi-turn conversation logging
+
+7. On-the-fly Embedding Generation:
+   - Creates and caches embeddings for efficient reuse
+
+
+1. Contextual Relevance
+   The QA pairs are directly tied to specific document chunks, ensuring relevance and accuracy.
+
+   Document -> Chunks -> QA Pairs
+   [A]        [B1][B2]   [C1][C2][C3]
+               |  |      /  /  /
+               |  |-----/--/--/
+               |-------/--/
+                       |
+
+2. Diverse Query Formulations
+   Query expansion creates varied question forms, improving model generalization.
+
+   Original Query -> Expanded Queries
+   [Q] ------------> [Q1][Q2][Q3]
+
+3. Multi-turn Conversations
+   Captures context-dependent interactions, enhancing conversational abilities.
+
+   Turn 1    Turn 2    Turn 3
+   Q1 -> A1 -> Q2 -> A2 -> Q3 -> A3
+        |          |          |
+        v          v          v
+      Context    Context    Context
+
+4. Grounded Responses
+   Answers are based on document content, promoting factual accuracy.
+
+   Document Content -> Retrieved Chunks -> Generated Answer
+   [:::::::::::::]     [:::] [:::] [::]     [Answer Text]
+                         |     |    |         ^  ^  ^
+                         |     |    |---------|  |  |
+                         |     |--------------|  |
+                         |----------------------|
+
+5. Metadata Rich
+   Includes relevance scores and position information, useful for training retrieval models.
+
+   Chunk: [Content] (Relevance: 0.95, Position: 156-234)
+
+By finetuning models on this data, we can improve:
+- Information retrieval capabilities
+- Context-aware response generation
+- Factual grounding in responses
+- Handling of multi-turn conversations
+
+This synthetic data bridges the gap between general language understanding and specific document comprehension, leading to more capable and reliable AI assistants.
+
 ![dithered_image (4)](https://github.com/user-attachments/assets/665ef536-d4c7-45d3-b910-a37223df3fa3)
 
 
