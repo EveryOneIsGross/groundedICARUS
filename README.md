@@ -3,6 +3,8 @@ Icarus was looking for a shortcut to the centre of the sun, this grounds him to 
 
 ![transparent_dithered_image](https://github.com/user-attachments/assets/f81a611f-6b2f-474d-a5e2-d7562564ee50)
 
+note: please excuse some very obvious frustrated work arounds, this was just meant to be an afternoons quick script. search will need tuning. chunking ought to be replaced with a better sentence aware menthod. nice easy dataset generator of q: and a: pairs, update the weight value during evals to pass or fail the results.   
+
 Document Ingestion and Indexing:
 1. The script can process either a single markdown document or a folder containing multiple markdown files.
 2. Each document is split into chunks, and embeddings are generated for these chunks.
