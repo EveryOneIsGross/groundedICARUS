@@ -207,6 +207,8 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 - `query_expansion_prompt_file`: Path to the file containing the query expansion prompt. If empty, a default prompt will be used.
 
 
+note: JSONL excludes search enhanced query and saves it seperately, without distorting the initial user query. 
+
   ```
   {
   "id": 0,
@@ -217,7 +219,7 @@ This approach allows for efficient generation of document-grounded QA datasets, 
     },
     {
       "from": "human",
-      "value": "User query or expanded query"
+      "value": "User query with formatted retrival docs"
     },
     {
       "from": "gpt",
