@@ -267,9 +267,7 @@ note: JSONL excludes search enhanced query and saves it seperately, without dist
       "end": 500,
       "relevance": 0.95
     }
-  ],
-  "populated_system_prompt": "Fully populated system prompt",
-  "populated_query_prompt": "Fully populated query prompt"
+  ]
 }
 ```
 
