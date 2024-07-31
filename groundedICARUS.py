@@ -685,13 +685,43 @@ keyword-rich query that will maximize the retrieval of relevant information.
             return f"An error occurred while processing your question: {str(e)}"
 
     def add_to_response_export(self, question: str, answer: str, relevant_chunks: List[Dict], system_prompt: str, query_prompt: str, generated_query: str):
-        export_entry = {
-            "conversations": [
-                {"from": "system", "value": system_prompt},
-                {"from": "human", "value": query_prompt},
-                {"from": "gpt", "value": answer, "weight": 1}
-            ],
-            "docs": [
+        conversation_turn = {
+            "from": "human",
+            "value": query_prompt
+        }
+        assistant_turn = {
+            "from": "gpt",
+            "value": answer,
+            "weight": 1
+        }
+        
+        if not self.response_data or self.config.get('zero_shot', True):
+            # Start a new conversation for zero-shot or if it's the first turn
+            export_entry = {
+                "conversations": [
+                    {"from": "system", "value": system_prompt},
+                    conversation_turn,
+                    assistant_turn
+                ],
+                "docs": [
+                    {
+                        "content": chunk['content'],
+                        "source": chunk['source'],
+                        "start": chunk['start'],
+                        "end": chunk['end'],
+                        "relevance": chunk['relevance']
+                    } for chunk in relevant_chunks
+                ],
+                "id": self.conversation_id,
+                "populated_system_prompt": system_prompt,
+                "populated_query_prompt": query_prompt
+            }
+            self.response_data.append(export_entry)
+            self.conversation_id += 1
+        else:
+            # Append to the existing conversation for multi-turn
+            self.response_data[-1]["conversations"].extend([conversation_turn, assistant_turn])
+            self.response_data[-1]["docs"].extend([
                 {
                     "content": chunk['content'],
                     "source": chunk['source'],
@@ -699,13 +729,7 @@ keyword-rich query that will maximize the retrieval of relevant information.
                     "end": chunk['end'],
                     "relevance": chunk['relevance']
                 } for chunk in relevant_chunks
-            ],
-            "id": self.conversation_id,
-            "populated_system_prompt": system_prompt,
-            "populated_query_prompt": query_prompt
-        }
-        self.response_data.append(export_entry)
-        self.conversation_id += 1
+            ])
 
     def export_to_jsonl(self, query_expansion_filename: str, response_filename: str):
         with open(query_expansion_filename, 'w', encoding='utf-8') as f:
@@ -812,6 +836,7 @@ if __name__ == "__main__":
         "use_conversation_history": False,
         "include_position": False,
         "max_documents_in_prompt": 3,  # Default to including 3 documents
+        "zero_shot": False # Default to zero-shot conversation, if set to False, it will be recorded as multi-turn
     }
 
     # Load configuration from file if provided
