@@ -1,4 +1,4 @@
-groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
+groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced lazy rag dataset generation.
 
 ![transparent_dithered_image](https://github.com/user-attachments/assets/f81a611f-6b2f-474d-a5e2-d7562564ee50)
 
