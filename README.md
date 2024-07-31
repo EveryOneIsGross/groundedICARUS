@@ -178,7 +178,8 @@ graph TD
   "answer_generation_model": "llama3.1:latest",
   "use_conversation_history": false,
   "include_position": false,
-  "max_documents_in_prompt": 3
+  "max_documents_in_prompt": 3,
+  "zero_shot": true,
 }
 ```
 
