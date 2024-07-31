@@ -1,7 +1,7 @@
 
 Icarus was looking for a shortcut to the centre of the sun, this grounds him to keep him here dreaming for us. groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
 
-![dithered_image (4)](https://github.com/user-attachments/assets/665ef536-d4c7-45d3-b910-a37223df3fa3)
+![transparent_dithered_image](https://github.com/user-attachments/assets/f81a611f-6b2f-474d-a5e2-d7562564ee50)
 
 Document Ingestion and Indexing:
 1. The script can process either a single markdown document or a folder containing multiple markdown files.
@@ -240,3 +240,5 @@ note: JSONL excludes search enhanced query and saves it seperately, without dist
   "populated_query_prompt": "Fully populated query prompt"
 }
 ```
+
+![dithered_image (4)](https://github.com/user-attachments/assets/665ef536-d4c7-45d3-b910-a37223df3fa3)
