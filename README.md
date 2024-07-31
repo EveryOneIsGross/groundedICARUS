@@ -1,4 +1,6 @@
-groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
+---
+
+Icarus was looking for a shortcut to the centre of the sun, this grounds him to keep him here dreaming for us. groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
 
 ![dithered_image (4)](https://github.com/user-attachments/assets/665ef536-d4c7-45d3-b910-a37223df3fa3)
 
@@ -124,9 +126,9 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 
 ```
 
-# CONFIGURATION FILES
+# Configuration Options
 
-```
+```config.json
 {
   "model_name": "orca-mini-3b-gguf2-q4_0.gguf",
   "embedding_resolution": 64,
@@ -153,8 +155,6 @@ This approach allows for efficient generation of document-grounded QA datasets, 
   "max_documents_in_prompt": 3
 }
 ```
-
-# Configuration Options
 
 ## Model Settings
 
@@ -200,6 +200,38 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 - `include_position`: Whether to include position information (start/end) in the output for each chunk. (Options: true/false)
 - `query_expansion_output`: The filename for saving query expansion data. (Default: "query_expansion.jsonl")
 - `response_output`: The filename for saving response data. (Default: "response.jsonl")
+
+  ```
+  {
+  "id": 0,
+  "conversations": [
+    {
+      "from": "system",
+      "value": "System prompt content"
+    },
+    {
+      "from": "human",
+      "value": "User query or expanded query"
+    },
+    {
+      "from": "gpt",
+      "value": "AI-generated answer",
+      "weight": 1
+    }
+  ],
+  "docs": [
+    {
+      "content": "Relevant chunk of text from the document",
+      "source": "filename.md",
+      "start": 0,
+      "end": 500,
+      "relevance": 0.95
+    }
+  ],
+  "populated_system_prompt": "Fully populated system prompt",
+  "populated_query_prompt": "Fully populated query prompt"
+}
+```
 
 ## Prompt Settings
 
