@@ -84,48 +84,72 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 7. On-the-fly Embedding Generation:
    - Creates and caches embeddings for efficient reuse
 
-```
-1. Contextual Relevance
-   The QA pairs are directly tied to specific document chunks, ensuring relevance and accuracy.
+```mermaid
+graph TD
+    A[Input] --> B[Document Ingestion]
+    A --> C[Query Processing]
+    
+    B --> D[Chunking]
+    D --> E[Embedding Generation]
+    E --> F[Hybrid Search Index]
+    
+    C --> G[Query Expansion]
+    G --> H[Enhanced Queries]
+    
+    F --> I[Retrieval]
+    H --> I
+    
+    I --> J[Context Formation]
+    J --> K[Answer Generation]
+    
+    K --> L[Multi-Modal Output]
+    L --> M[JSONL for Training]
+    L --> N[Markdown for Review]
+    
+    O[Configuration] --> B
+    O --> C
+    O --> D
+    O --> E
+    O --> F
+    O --> G
+    O --> I
+    O --> J
+    O --> K
+    O --> L
+    
+    P[API Integration] --> G
+    P --> K
+    
+    Q[Embedding Cache] --> E
+    E --> Q
+    
+    R[Conversation History] --> J
+    K --> R
 
-   Document -> Chunks -> QA Pairs
-   [A]        [B1][B2]   [C1][C2][C3]
-               |  |      /  /  /
-               |  |-----/--/--/
-               |-------/--/
-                       |
+    subgraph "Data Flow"
+        A
+        B
+        C
+        D
+        E
+        F
+        G
+        H
+        I
+        J
+        K
+        L
+        M
+        N
+    end
 
-2. Diverse Query Formulations
-   Query expansion creates varied question forms, improving model generalization.
-
-   Original Query -> Expanded Queries
-   [Q] ------------> [Q1][Q2][Q3]
-
-3. Multi-turn Conversations
-   Captures context-dependent interactions, enhancing conversational abilities.
-
-   Turn 1    Turn 2    Turn 3
-   Q1 -> A1 -> Q2 -> A2 -> Q3 -> A3
-        |          |          |
-        v          v          v
-      Context    Context    Context
-
-4. Grounded Responses
-   Answers are based on document content, promoting factual accuracy.
-
-   Document Content -> Retrieved Chunks -> Generated Answer
-   [:::::::::::::]     [:::] [:::] [::]     [Answer Text]
-                         |     |    |         ^  ^  ^
-                         |     |    |---------|  |  |
-                         |     |--------------|  |
-                         |----------------------|
-
-5. Metadata Rich
-   Includes relevance scores and position information, useful for training retrieval models.
-
-   Chunk: [Content] (Relevance: 0.95, Position: 156-234)
-
-```
+    subgraph "Configuration & Integration"
+        O
+        P
+        Q
+        R
+    end
+    ```
 
 # Configuration Options
 
