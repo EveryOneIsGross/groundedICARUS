@@ -1,6 +1,8 @@
 
 Icarus was looking for a shortcut to the centre of the sun, this grounds him to keep him here dreaming for us. groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
 
+It operates as a 0 shot Q & A with relevant chunks from the docs, the Q gets expanded by an additional llm request enhancing the results without changing the provided query. you can provide .md prompts for the 3 (query expansion system prompt, query expansion prompt with {source} {documents}, and q&a system prompt llm steps.
+
 ![transparent_dithered_image](https://github.com/user-attachments/assets/f81a611f-6b2f-474d-a5e2-d7562564ee50)
 
 note: please excuse some very obvious frustrated work arounds, this was just meant to be an afternoons quick script. search will need tuning. chunking ought to be replaced with a better sentence aware menthod. nice easy dataset generator of q: and a: pairs, update the weight value during evals to pass or fail the results.   
