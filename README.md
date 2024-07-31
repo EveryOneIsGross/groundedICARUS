@@ -1,4 +1,3 @@
----
 
 Icarus was looking for a shortcut to the centre of the sun, this grounds him to keep him here dreaming for us. groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
 
@@ -201,6 +200,13 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 - `query_expansion_output`: The filename for saving query expansion data. (Default: "query_expansion.jsonl")
 - `response_output`: The filename for saving response data. (Default: "response.jsonl")
 
+## Prompt Settings
+
+- `system_prompt_file`: Path to the file containing the system prompt. If empty, a default prompt will be used.
+- `query_expansion_system_prompt_file`: Path to the file containing the system prompt for query expansion. If empty, a default prompt will be used.
+- `query_expansion_prompt_file`: Path to the file containing the query expansion prompt. If empty, a default prompt will be used.
+
+
   ```
   {
   "id": 0,
@@ -232,9 +238,3 @@ This approach allows for efficient generation of document-grounded QA datasets, 
   "populated_query_prompt": "Fully populated query prompt"
 }
 ```
-
-## Prompt Settings
-
-- `system_prompt_file`: Path to the file containing the system prompt. If empty, a default prompt will be used.
-- `query_expansion_system_prompt_file`: Path to the file containing the system prompt for query expansion. If empty, a default prompt will be used.
-- `query_expansion_prompt_file`: Path to the file containing the query expansion prompt. If empty, a default prompt will be used.
