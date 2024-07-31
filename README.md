@@ -84,6 +84,7 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 7. On-the-fly Embedding Generation:
    - Creates and caches embeddings for efficient reuse
 
+
 ```mermaid
 graph TD
     A[Input] --> B[Document Ingestion]
@@ -149,7 +150,7 @@ graph TD
         Q
         R
     end
-    ```
+```
 
 # Configuration Options
 
