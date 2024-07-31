@@ -181,6 +181,7 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 
 - `history_window`: The number of previous conversation turns to include for context. Larger windows provide more context but may slow down processing. (Default: 3)
 - `use_conversation_history`: Whether to use conversation history for context in responses. (Options: true/false)
+- `zero_shot`: Whether it saves as a 0-shot q&a pair to jsonl or as a single multi-turn conversation. (Options: true/false)
 
 ## Document Settings
 
