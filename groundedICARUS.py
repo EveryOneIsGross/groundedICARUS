@@ -732,17 +732,33 @@ keyword-rich query that will maximize the retrieval of relevant information.
             ])
 
     def export_to_jsonl(self, query_expansion_filename: str, response_filename: str):
+        # Helper function to filter out keys
+        def filter_keys(entry):
+            filtered = {}
+            for key, value in entry.items():
+                if key not in ['populated_system_prompt', 'populated_query_prompt']:
+                    if isinstance(value, list):
+                        filtered[key] = [filter_keys(item) if isinstance(item, dict) else item for item in value]
+                    elif isinstance(value, dict):
+                        filtered[key] = filter_keys(value)
+                    else:
+                        filtered[key] = value
+            return filtered
+
         with open(query_expansion_filename, 'w', encoding='utf-8') as f:
             for entry in self.query_expansion_data:
-                json.dump(entry, f, ensure_ascii=False)
+                filtered_entry = filter_keys(entry)
+                json.dump(filtered_entry, f, ensure_ascii=False)
                 f.write('\n')
-        print(f"{Fore.GREEN}Exported query expansion data to {query_expansion_filename}")
+        print(f"{Fore.GREEN}Exported filtered query expansion data to {query_expansion_filename}")
 
         with open(response_filename, 'w', encoding='utf-8') as f:
             for entry in self.response_data:
-                json.dump(entry, f, ensure_ascii=False)
+                filtered_entry = filter_keys(entry)
+                json.dump(filtered_entry, f, ensure_ascii=False)
                 f.write('\n')
-        print(f"{Fore.GREEN}Exported response data to {response_filename}")
+        print(f"{Fore.GREEN}Exported filtered response data to {response_filename}")
+
 
     def export_markdown_conversation(self, filename: str):
         self.logger.info(f"Exporting markdown conversation to {filename}")
