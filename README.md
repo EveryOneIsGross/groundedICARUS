@@ -2,7 +2,7 @@ groundedICARUS streamlines the creation of document-grounded datasets by process
 
 ![transparent_dithered_image](https://github.com/user-attachments/assets/f81a611f-6b2f-474d-a5e2-d7562564ee50)
 
-note: please excuse some very obvious frustrated work arounds, this was just meant to be an afternoons quick script. search will need tuning. chunking ought to be replaced with a better sentence aware menthod. nice easy dataset generator of q: and a: pairs.   
+**note:** please excuse some very obvious frustrated workarounds, this was j meant to be an afternoons quick script. search will need tuning unless you are just golden running. chunking ought to be replaced with a better sentence aware menthod. 
 
 Document Ingestion and Indexing:
 1. The script can process either a single markdown document or a folder containing multiple markdown files.
