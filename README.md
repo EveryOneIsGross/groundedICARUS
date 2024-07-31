@@ -1,7 +1,4 @@
-
-Icarus was looking for a shortcut to the centre of the sun, this grounds him to keep him here dreaming for us. groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
-
-It operates as a 0 shot Q & A with relevant chunks from the docs, the Q gets expanded by an additional llm request enhancing the results without changing the provided query. you can provide .md prompts for the 3 (query expansion system prompt, query expansion prompt with {source} {documents}, and q&a system prompt llm steps.
+groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced model training and evaluation.
 
 ![transparent_dithered_image](https://github.com/user-attachments/assets/f81a611f-6b2f-474d-a5e2-d7562564ee50)
 
@@ -60,6 +57,7 @@ Output:
 2. A markdown file is also created with a detailed log of the conversation, including system prompts, user queries, and AI responses.
 
 This approach allows for efficient generation of document-grounded QA datasets, which can be valuable for fine-tuning language models or evaluating their performance on specific domains or document sets.
+
 
 ---
 
@@ -210,6 +208,11 @@ This approach allows for efficient generation of document-grounded QA datasets, 
 - `query_expansion_system_prompt_file`: Path to the file containing the system prompt for query expansion. If empty, a default prompt will be used.
 - `query_expansion_prompt_file`: Path to the file containing the query expansion prompt. If empty, a default prompt will be used.
 
+To use groundedICARUS, prepare three separate markdown (.md) files for its key prompts:
+
+1. Query Expansion System Prompt: A general instruction for expanding queries.
+2. Query Expansion Prompt: Include placeholders {source} and {documents} for context. This guides the query enhancement process.
+3. Q&A System Prompt: Directs the final answer generation step.
 
 note: JSONL excludes search enhanced query and saves it seperately, without distorting the initial user query. 
 
