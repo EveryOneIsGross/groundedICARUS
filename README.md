@@ -1,4 +1,5 @@
 ---
+
 groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced lazy rag dataset generation.
 
 ![transparent_dithered_image](https://github.com/user-attachments/assets/f81a611f-6b2f-474d-a5e2-d7562564ee50)
@@ -6,6 +7,7 @@ groundedICARUS streamlines the creation of document-grounded datasets by process
 **note:** please excuse some very obvious frustrated workarounds, this was j meant to be an afternoons quick script. search will need tuning unless you are just golden running 🤙, but is close enough, numbers in relevence scores are vibes valued. chunking method needs a refactor it has some double handling, same with bm25 indexing being within the loop rather than at the end etc. 👽
 
 ```
+
 Question: i am trying to pursue a life on novelty to "entertain" god, how well does this align with walter russels perspective?
 
 Answer: 
@@ -47,6 +49,7 @@ Pursuing a life of novelty to "entertain" God may not be fully aligned with Walt
 Additional Context:
 Walter Russell's philosophy emphasizes the importance of recognizing the interconnectedness of all units of creation and the need to understand the universe's natural laws and principles. This approach is in contrast to a superficial pursuit of novelty, which may not be fully aligned with Russell's ideas. <ref id="1">Home Study Course Unit 10 Lessons 37,38,39,40 by Walter Russell</ref>
 </answer>
+
 ```
 
 Document Ingestion and Indexing:
