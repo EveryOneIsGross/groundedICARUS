@@ -4,6 +4,7 @@
 groundedICARUS streamlines the creation of document-grounded datasets by processing markdown files, expanding queries, and generating synthetic QA pairs and conversations, offering flexible configuration and output options for enhanced lazy rag dataset generation.
 
 **note:**
+
 please excuse some very obvious frustrated workarounds, this was j meant to be an afternoons quick script. search will need tuning unless you are just golden running 🤙, but is close enough, numbers in relevence scores are vibes valued. chunking method needs a refactor it has some double handling, same with bm25 indexing being within the loop rather than at the end etc. 
 
 ```
