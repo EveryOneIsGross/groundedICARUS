@@ -7,12 +7,11 @@ groundedICARUS streamlines the creation of document-grounded datasets by process
 
 please excuse some very obvious frustrated workarounds, this was j meant to be an afternoons quick script. search will need tuning unless you are just golden running 🤙, but is close enough, numbers in relevence scores are vibes valued. chunking method needs a refactor it has some double handling, same with bm25 indexing being within the loop rather than at the end etc. 
 
-```
+```text
 
 Question: i am trying to pursue a life on novelty to "entertain" god, how well does this align with walter russels perspective?
 
-Answer: 
-<scratchpad>
+Answer: <scratchpad>
 Based on the provided document excerpts, we can analyze the perspective of Walter Russell and its alignment with the pursuit of a life of novelty to "entertain" God.
 
 From the excerpts, it is evident that Walter Russell's philosophy emphasizes the importance of understanding and aligning with the universe's natural laws and principles. He mentions the need to "rise above" one's sensing and to "be the whole universe in your KNOWING" (Doc [0]). This suggests that Russell values a deep understanding and connection with the universe, rather than mere entertainment or novelty.
